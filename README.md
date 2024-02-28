@@ -1,4 +1,4 @@
-# Simulations Asymptotically Optimal Message Dissemination with Applications to Blockchains
+# Simulations for Asymptotically Optimal Message Dissemination with Applications to Blockchains
 This repository contains the necessary source code to reproduce the results presented in the paper [Asymptotically Optimal Message Dissemination with Applications to Blockchains](https://eprint.iacr.org/2022/1723).
 
 The paper includes both results from probabilistic simulations in `Python` and an implementation in `C++` to upper bound the computational overhead. Below we describe how to reproduce the results for each part individually. 
