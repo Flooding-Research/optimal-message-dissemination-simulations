@@ -82,7 +82,7 @@ def produce_data_for_fig_1_10(iterations):
     # Define the config for ECFlood(8) for the figures
     config = Config()
     config.number_runs = iterations
-    Config.number_of_parties = [4096, 8192, 16384]
+    config.number_of_parties = [4096, 8192, 16384]
     config.expected_degrees = [8]
     config.number_shares_list = [25]
 
