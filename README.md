@@ -23,7 +23,7 @@ By adjusting the variable `NUMBER_OF_CORES` the number of cores that the simulat
 
 ### Usage
 
-The probabilistic simulations come with a very simple command line interface allowing to specify the number of repetitions for each data point and the figure which data is desired for. 
+The probabilistic simulations come with a very simple command line interface allowing to specify the number of repetitions for each data point and the figure for which data should be simulated. 
 
 To run the probabilistic simulations go to the folder where `sim.py` is located and execute the command:
 
@@ -31,7 +31,7 @@ To run the probabilistic simulations go to the folder where `sim.py` is located 
 python sim.py <number_of_repetitions> <figure_number>
 ```
 
-where `<number_of_repetitions>` should be replaced with the desired number of repetitions for each data point and `<figure_number>` should be replaced with the desired figure number from the [ePrint version of the paper](https://eprint.iacr.org/2022/1723) (a map between figure numbers appearing in the ePrint version and the Eurocrypt version can be found below) [here](#figure-mapping)). The latter should be in an integer between 1 and 10. 
+where `<number_of_repetitions>` should be replaced with the desired number of repetitions for each data point and `<figure_number>` should be replaced with the desired figure number (an integer between 1 and 10) from the [ePrint version of the paper](https://eprint.iacr.org/2022/1723) (a map between figure numbers appearing in the ePrint version and the Eurocrypt version can be found below) [here](#figure-mapping)). We suggest to use a `1000` repetitions for experimentation and a `100000` repetitions to reproduce the results of the paper.
 
 Note that the same experiments produce the underlying data for several figures. Therefore the following figure numbers produce the same files:
 
