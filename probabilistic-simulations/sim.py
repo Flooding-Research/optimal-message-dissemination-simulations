@@ -185,8 +185,11 @@ class WeakFloodingProtocol(Enum):
     ERFLOOD = 1 # Erdös-Renyi Flood. Each party sends the message to all other
                 # parties with probability expected degree/number of parties
     FFLOOD = 2 # Fanout-Flood. Each party simply chooses expected degree number
-               # of neighbors at random.
+               # of neighbors at random. This is the only weak flooding protocol
+               # appearing in the paper.
 
+    # The files containing results will have the prefix below to distinguish
+    # which weakflooding protocol was used. 
     def __str__(self):
         if self.name == 'ERFLOOD':
             return 'ER'
@@ -228,7 +231,7 @@ class Config:
         print("Fraction of corrupted parties:", self.corruption_frac)
         print("Number of share list:", self.number_shares_list)
         print("Expected degrees:", self.expected_degrees)
-        print("Mode:", self.protocol)
+        print("Weak Flooding Protocol:", self.protocol)
         print("Maximum Neighbors:", self.max_neighbors)
         print("-------------------------------------------------------")
 
