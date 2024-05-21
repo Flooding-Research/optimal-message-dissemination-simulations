@@ -1,12 +1,8 @@
 # Simulations for Asymptotically Optimal Message Dissemination with Applications to Blockchains
-This repository contains the necessary source code to reproduce the results presented in the paper [Asymptotically Optimal Message Dissemination with Applications to Blockchains](https://eprint.iacr.org/2022/1723).
+This repository contains the necessary source code to reproduce the simulation results presented in the paper [Asymptotically Optimal Message Dissemination with Applications to Blockchains](https://eprint.iacr.org/2022/1723).
+The Python script `sim.py` can reproduce all the data underlying the probabilistic simulations shown in the paper.
 
-The paper includes both results from probabilistic simulations in `Python` and an implementation in `C++` to upper bound the computational overhead. Below we describe how to reproduce the results for each part individually. 
-
-## Probabilistic Simulations
-The Python script `sim.py` found in the folder `probabilistic-simulations` can reproduce all the data underlying the probabilistic simulations shown in the paper.
-
-### Prerequisites
+## Prerequisites
 To run the simulation script, ensure you have Python 3.x installed with the following packages:
 
 - NumPy
@@ -21,7 +17,7 @@ pip install numpy tqdm
 Additionally, one must ensure that the folder in the variable `RESULT_PATH` exists. By default, this folder is set to `results`.
 By adjusting the variable `NUMBER_OF_CORES` the number of cores that the simulation script should utilize can be adjusted. 
 
-### Usage
+## Usage
 
 The probabilistic simulations come with a very simple command line interface allowing to specify the number of repetitions for each data point and the figure for which data should be simulated. 
 
@@ -39,8 +35,9 @@ Note that the same experiments produce the underlying data for several figures. 
 - 2, 3, 4, and 5
 - 6 and 7
 
-### Obtaining the Figures in the Eurocrypt Version of the Paper
-#### Figure 1
+
+## Obtaining the Figures in the Eurocrypt Version of the Paper
+### Figure 1
 Running the command
 ```
 python sim.py <number_of_repetitions> 1
@@ -62,10 +59,9 @@ The 6 files for the protocol __ECFlood(<d>)__ are named:
 ./results/FFFloodAmplifier-n-8192-d-20-mu-10-r-<number_of_repetitions>.csv
 ./results/FFFloodAmplifier-n-16384-d-20-mu-10-r-<number_of_repetitions>.csv
 ```
-#### Figure 2
+### Figure 2
 
-
-### Mapping between ePrint and Eurocrypt figure numbers
+## Mapping between ePrint and Eurocrypt figure numbers
 
 Below is a mapping between the figure numbers. 
 
