@@ -1,4 +1,4 @@
-import math, random, csv, sys
+import math, random, csv, sys, os
 import numpy as np
 import tqdm
 
@@ -26,6 +26,11 @@ BLOCK_SIZE = 10 ** 6 # In bytes. Only used when estimating actual pr. party
 
 def main():
     """Run simulations and export results"""
+
+    # Ensure that the [RESULT_PATH] folder exists and otherwise create it.
+    if not os.path.exists(RESULT_PATH):
+        os.makedirs(RESULT_PATH)
+        print(f"Folder '{RESULT_PATH}' created.")
 
     # Check if the correct number of arguments is provided
     if len(sys.argv) != 3:
