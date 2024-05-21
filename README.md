@@ -50,7 +50,7 @@ The 3 files for the protocol __FFlood__ are named:
 ./results/FF-n-8192-r-<number_of_repetitions.csv 
 ./results/FF-n-16384-r-<number_of_repetitions.csv
 ```
-The 6 files for the protocol __ECFlood(<d>)__ are named:
+The 6 files for the protocol __ECFlood(d)__ are named:
 ```
 ./results/FFFloodAmplifier-n-4096-d-8-mu-25-r-<number_of_repetitions>.csv 
 ./results/FFFloodAmplifier-n-8192-d-8-mu-25-r-<number_of_repetitions>.csv 
