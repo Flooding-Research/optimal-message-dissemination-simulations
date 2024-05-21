@@ -39,6 +39,29 @@ Note that the same experiments produce the underlying data for several figures. 
 - 2, 3, 4, and 5
 - 6 and 7
 
+### Interpreting the Output for the Eurocrypt Version of the Paper
+Running the command
+```
+python sim.py <number_of_repetitions> 1
+```
+will produce 9 files in total where each file contain the columns `Error rate` and `Pr. party communication in MB` that corresponds to the data points for a particular line in Figure 1. 
+
+The 3 files for the protocol __FFlood__ are named:
+``` 
+./results/FF-n-4096-r-<number_of_repetitions.csv 
+./results/FF-n-8192-r-<number_of_repetitions.csv 
+./results/FF-n-16384-r-<number_of_repetitions.csv
+```
+The 6 files for the protocol __ECFlood(<d>)__ are named:
+```
+./results/FFFloodAmplifier-n-4096-d-8-mu-25-r-<number_of_repetitions>.csv 
+./results/FFFloodAmplifier-n-8192-d-8-mu-25-r-<number_of_repetitions>.csv 
+./results/FFFloodAmplifier-n-16384-d-8-mu-25-r-<number_of_repetitions>.csv
+./results/FFFloodAmplifier-n-4096-d-20-mu-10-r-<number_of_repetitions>.csv 
+./results/FFFloodAmplifier-n-8192-d-20-mu-10-r-<number_of_repetitions>.csv
+./results/FFFloodAmplifier-n-16384-d-20-mu-10-r-<number_of_repetitions>.csv
+```
+
 ### Mapping between ePrint and Eurocrypt figure numbers
 
 Below is a mapping between the figure numbers. 

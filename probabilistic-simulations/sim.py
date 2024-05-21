@@ -50,8 +50,8 @@ def main():
         sys.exit(1)
     
     # Print the converted integers
-    print("Argument 1:", arg1)
-    print("Argument 2:", arg2)
+    print("Number of repetitions:", arg1)
+    print("Figure number:", arg2)
 
     # Produce the data for the relevant figure
     if figure_number in [1,10]:
@@ -739,13 +739,14 @@ def export_flood_amplifier_per_n_d_and_mu(results, config):
                     
                     # Add extra data point for the smallest fraction of shares that no runs satisfy
                     last_frac_where_some_simulations_received, _ = data_points[-1]
+
                     if last_frac_where_some_simulations_received < 1: 
                         data_points.append((last_frac_where_some_simulations_received + (1 / real_mu ), 0))
 
-                    
-                    # Update all data points with per part communication estimates and latency.
+                    # Update all data points with per part communication estimates, error rate and latency.
                     data_points = [(min_shares,
                                     sims,
+                                    1 - sims,
                                     per_party_communication(min_shares,
                                                             real_mu, real_d),
                                     get_max_dist_to_share_if_any(max_dists_to_receive_shares,
@@ -760,6 +761,7 @@ def export_flood_amplifier_per_n_d_and_mu(results, config):
                     # Create header for csv file
                     header = ['Shares received by all parties',
                               'Simulations',
+                              'Error rate',
                               'Pr. party communication in MB',
                               'Latency',
                               'Naive redundancy estimate']
@@ -862,6 +864,10 @@ def export_weak_flood_latency_per_n(results, config):
 
             # Calculate the fraction of simulations where all parties received
             success_rate = len(relevant_results) / config.number_runs
+            error_rate = 1 - success_rate
+
+            # The per party communication is equal to the out-degree for WeakFlooding
+            per_party_communication_mb = real_d
 
             # Calculate the maximum distance to receive the share across all simulations
             max_max_dist_to_min_share = 0
@@ -869,12 +875,12 @@ def export_weak_flood_latency_per_n(results, config):
                 max_max_dist_to_min_share = max([r[0] for r in relevant_results])
             
             # Append data to list of data points
-            data_points.append((success_rate, real_d, max_max_dist_to_min_share))
+            data_points.append((success_rate, error_rate, real_d, max_max_dist_to_min_share, per_party_communication_mb))
 
         # Create file name
         filename = RESULT_PATH + str(config.protocol) + '-n-' + str(real_n) + '-r-' + str(config.number_runs) + '.csv'
         # Create header for csv file
-        header = ['Success rate','degree', 'latency']
+        header = ['Success rate','Error rate','Degree', 'Latency', 'Pr. party communication in MB']
         # Export data to csv
         write_to_csv(filename, header, data_points)
 
@@ -896,7 +902,7 @@ def write_to_csv(filename, header, data):
     # Close the file
     file.close()
     
-    print('Wrote data to ' + filename + '.')
+    print('Wrote data to ' + filename)
 
 def safe_div(x,y):
     """Division that returns 0 if one divides by zero. This will only be
