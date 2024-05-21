@@ -65,7 +65,7 @@ def main():
     elif figure_number in [9]:
         produce_data_for_fig_9(number_of_repetitions)
     else:
-        print("Error: <number_of_repetitions> must be an integer in {1,...,10}")
+        print("Error: <figure_number> must be an integer in {1,...,10}")
         sys.exit(1)
         
 def produce_data_for_fig_1_10(iterations):
