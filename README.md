@@ -39,7 +39,8 @@ Note that the same experiments produce the underlying data for several figures. 
 - 2, 3, 4, and 5
 - 6 and 7
 
-### Interpreting the Output for the Eurocrypt Version of the Paper
+### Obtaining the Figures in the Eurocrypt Version of the Paper
+#### Figure 1
 Running the command
 ```
 python sim.py <number_of_repetitions> 1
@@ -61,6 +62,8 @@ The 6 files for the protocol __ECFlood(<d>)__ are named:
 ./results/FFFloodAmplifier-n-8192-d-20-mu-10-r-<number_of_repetitions>.csv
 ./results/FFFloodAmplifier-n-16384-d-20-mu-10-r-<number_of_repetitions>.csv
 ```
+#### Figure 2
+
 
 ### Mapping between ePrint and Eurocrypt figure numbers
 
