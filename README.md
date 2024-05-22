@@ -82,7 +82,7 @@ From these output the best degree ensuring that all simulations succeeded can be
 For __ECFlood__ the function that should be plotted is (Eq (11) in the Eurocrypt version): 
 
 ```
-ECFlood_per_party_communication(msg_length) = mu * degree * (ceil(msg_length / (reconstruction_fraction * mu)) + 257 * ceil(log2(mu)) + 256)
+ECFlood_per_party_communication(msg_length) = number_of_shares * degree * (ceil(msg_length / (reconstruction_fraction * number_of_shares)) + 257 * ceil(log2(number_of_shares)) + 256)
 ```
 
 For the respective number of parties the script will produce 6 outputs of the following format for __ECFlood__
