@@ -42,7 +42,7 @@ Running the command
 ```
 python sim.py <number_of_repetitions> 1
 ```
-will produce 9 files in total where each file contains the columns `Error rate` and `Pr. party communication in MB` that corresponds to the data points for a particular line in Figure 1. 
+produces 9 files in total where each file contains the columns `Error rate` and `Pr. party communication in MB` that correspond to the data points for a particular line in Figure 1.
 
 The 3 files for the protocol __FFlood__ are named:
 ``` 
