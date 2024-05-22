@@ -33,7 +33,7 @@ def main():
 
     # Check if the correct number of arguments is provided
     if len(sys.argv) != 3:
-        print("Usage: python sim.py <number_of_repetetions> <figure_number>")
+        print("Usage: python sim.py <number_of_repetitions> <figure_number>")
         sys.exit(1)
     
     # Get the command-line arguments
