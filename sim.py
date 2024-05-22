@@ -14,7 +14,7 @@ from multiprocessing import Pool
 RESULT_PATH = './results/'  # <-- Ensure that this exists!
 
 # Number of cores to be used when executing the simulations
-NUMBER_OF_CORES = 1  # <-- Remember to set this!
+NUMBER_OF_CORES = None  # <-- Set this to use less than total available of CPU cores.
 
 # Variables for communication estimation.
 HASH_SIZE = 32  # In bytes. Only used to estimate the size of the Merkle tree.
