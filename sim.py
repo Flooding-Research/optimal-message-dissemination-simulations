@@ -10,8 +10,7 @@ from multiprocessing import Pool
 # Global variables for the simulations
 # --------------------------------------------------
 
-# IMPORTANT: The script requires the folder [result_path] to exist or an error
-# will be produced.
+# The script will store files containing the results in the dir [RESULT_PATH].
 RESULT_PATH = './results/'  # <-- Ensure that this exists!
 
 # Number of cores to be used when executing the simulations
@@ -768,6 +767,27 @@ def export_flood_amplifier_per_n_d_and_mu(results, config):
 
                     # Export data to csv
                     write_to_csv(filename, header, data_points)
+                    
+                    # We now find the best parameters to make none of the simulations fail
+                    # First, we dollect all the degrees that gave an error rate of 0.
+                    succeding_data_points = [reconstruction_fraction for
+                                             (reconstruction_fraction, _, error_rate, _, _, _) in data_points
+                                             if error_rate == 0.0]
+        
+                    # If there is any such parameter we print it
+                    if len(succeding_data_points) > 0: 
+                        print("Best parameters that made "
+                              + str(config.protocol)
+                              + 'FloodAmplifier-n-'
+                              + str(real_n)
+                              + '-d-'
+                              + str(real_d)
+                              + '-mu-'
+                              + str(real_mu)
+                              + " not fail is reconstruction_fraction = "
+                              + str(max(succeding_data_points)))
+                    else:
+                        print("No parameters made all repetitions succeed")
 
 def get_max_dist_to_share_if_any(max_dists_to_receive_shares, number_of_shares):
     """Get maxímum distance to receive a certain number of shares if such maximum
@@ -883,6 +903,22 @@ def export_weak_flood_latency_per_n(results, config):
         header = ['Success rate','Error rate','Degree', 'Latency', 'Pr. party communication in MB']
         # Export data to csv
         write_to_csv(filename, header, data_points)
+
+        
+        # We now find the best parameters to make none of the simulations fail
+        # First, we dollect all the degrees that gave an error rate of 0.
+        succeding_data_points = [degree for (_, error_rate, degree, _, _) in data_points if error_rate == 0.0]
+        
+        # If there is any such parameter we print it
+        if len(succeding_data_points) > 0: 
+            print("Best parameter that made "
+                  + str(config.protocol)
+                  + '-n-'
+                  + str(real_n)
+                  + " not fail is degree = "
+                  + str(min(succeding_data_points)))
+        else:
+            print("No parameters made all repetitions succeed")
 
 def write_to_csv(filename, header, data):
     """Utility function that writes to csv"""
