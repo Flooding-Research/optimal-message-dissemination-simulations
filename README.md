@@ -27,7 +27,7 @@ To run the probabilistic simulations go to the folder where `sim.py` is located 
 python sim.py <number_of_repetitions> <figure_number>
 ```
 
-where `<number_of_repetitions>` should be replaced with the desired number of repetitions for each data point and `<figure_number>` should be replaced with the desired figure number (an integer between 1 and 10) from the [ePrint version of the paper](https://eprint.iacr.org/2022/1723) (a map between figure numbers appearing in the ePrint version and the Eurocrypt version can be found below) [here](#figure-mapping)). We suggest to use a `1000` repetitions for experimentation and a `100000` repetitions to reproduce the results of the paper.
+where `<number_of_repetitions>` should be replaced with the desired number of repetitions for each data point and `<figure_number>` should be replaced with the desired figure number (an integer between 1 and 10) from the [ePrint version of the paper](https://eprint.iacr.org/2022/1723) (a map between figure numbers appearing in the ePrint version and the Eurocrypt version can be found below) [here](#figure-mapping)). We suggest to use `1000` repetitions for experimentation and `100000` repetitions to reproduce the results of the paper.
 
 Note that the same experiments produce the underlying data for several figures. Therefore the following figure numbers (following the ePrint numbering) produce the same files:
 
