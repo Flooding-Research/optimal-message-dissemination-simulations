@@ -26,11 +26,6 @@ BLOCK_SIZE = 10 ** 6 # In bytes. Only used when estimating actual pr. party
 def main():
     """Run simulations and export results"""
 
-    # Ensure that the [RESULT_PATH] folder exists and otherwise create it.
-    if not os.path.exists(RESULT_PATH):
-        os.makedirs(RESULT_PATH)
-        print(f"Folder '{RESULT_PATH}' created.")
-
     # Check if the correct number of arguments is provided
     if len(sys.argv) != 3:
         print("Usage: python sim.py <number_of_repetitions> <figure_number>")
@@ -47,6 +42,11 @@ def main():
     except ValueError:
         print("Error: Both arguments must be integers")
         sys.exit(1)
+
+    # Ensure that the [RESULT_PATH] folder exists and otherwise create it.
+    if not os.path.exists(RESULT_PATH):
+        os.makedirs(RESULT_PATH)
+        print(f"Folder '{RESULT_PATH}' created.")
     
     # Print the converted integers
     print("Number of repetitions:", arg1)
