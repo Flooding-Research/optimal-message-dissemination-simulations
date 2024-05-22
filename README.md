@@ -37,7 +37,7 @@ Note that the same experiments produce the underlying data for several figures. 
 
 
 ## Obtaining the Figures in the Eurocrypt Version of the Paper
-### Figure 1
+### Figure 1 (Eurocrypt numbering)
 Running the command
 ```
 python sim.py <number_of_repetitions> 1
@@ -46,9 +46,9 @@ will produce 9 files in total where each file contain the columns `Error rate` a
 
 The 3 files for the protocol __FFlood__ are named:
 ``` 
-./results/FF-n-4096-r-<number_of_repetitions.csv 
-./results/FF-n-8192-r-<number_of_repetitions.csv 
-./results/FF-n-16384-r-<number_of_repetitions.csv
+./results/FF-n-4096-r-<number_of_repetitions>.csv 
+./results/FF-n-8192-r-<number_of_repetitions>.csv 
+./results/FF-n-16384-r-<number_of_repetitions>.csv
 ```
 The 6 files for the protocol __ECFlood(d)__ are named:
 ```
@@ -59,7 +59,37 @@ The 6 files for the protocol __ECFlood(d)__ are named:
 ./results/FFFloodAmplifier-n-8192-d-20-mu-10-r-<number_of_repetitions>.csv
 ./results/FFFloodAmplifier-n-16384-d-20-mu-10-r-<number_of_repetitions>.csv
 ```
-### Figure 2
+### Figure 2 (Eurocrypt numbering)
+Running the command
+```
+python sim.py <number_of_repetitions> 10
+```
+will, in addition to producing the above files, also produce 9 set of parameters that can be used to make a plot of the per party communication complexity as a function of the message length for the respective functions. 
+
+For __FFlood__ the function that should be plotted is: 
+
+```
+FFlood_per_party_communication(msg_length) = degree * msg_length
+```
+
+For the respective number of parties the script will produce 3 outputs of the following format for __FFlood__
+```
+Best parameter that made FF-n-<number_of_parties> not fail is degree = <d>
+```
+
+From these output the best degree ensuring that all simulations succeeded can be read and used in the above function to obtain the lines for __FFlood__ in Figure 2 (Eurocrypt numbering). 
+
+For __ECFlood__ the function that should be plotted is (Eq (11) in the Eurocrypt version): 
+
+```
+ECFlood_per_party_communication(msg_length) = mu * degree * (ceil(msg_length / (reconstruction_fraction * mu)) + 257 * ceil(log2(mu)) + 256)
+```
+
+For the respective number of parties the script will produce 6 outputs of the following format for __ECFlood__
+```
+Best parameters that made FFFloodAmplifier-n-<number_of_parties>-d-<degree>-mu-<number_of_shares> not fail is reconstruction_fraction = <reconstruction_threshold>
+```
+From these output the best reconstruction threshold  ensuring that all simulations succeeded for the respective combinations of degree and number of shares, can be read and used in the above function to obtain the lines for __ECFlood__ in Figure 2 (Eurocrypt numbering). 
 
 ## Mapping between ePrint and Eurocrypt figure numbers
 

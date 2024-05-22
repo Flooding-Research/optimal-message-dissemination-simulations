@@ -776,7 +776,7 @@ def export_flood_amplifier_per_n_d_and_mu(results, config):
         
                     # If there is any such parameter we print it
                     if len(succeding_data_points) > 0: 
-                        print("Best parameters that made "
+                        print("Best parameter that made "
                               + str(config.protocol)
                               + 'FloodAmplifier-n-'
                               + str(real_n)
