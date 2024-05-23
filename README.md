@@ -79,7 +79,7 @@ Best parameter that made FF-n-<number_of_parties> not fail is degree = <d>
 
 From these outputs, the best degree ensuring that all simulations succeeded can be read and used in the above function to obtain the lines for __FFlood__ in Figure 2 (Eurocrypt numbering). 
 
-For __ECFlood__ the function that should be plotted is (Eq (11) in the Eurocrypt version): 
+For __ECFlood__ the function that should be plotted is (Eq (11) in the Eurocrypt version replacing the total number of shares minus the number of tolerated erasures with the total number of shares times the fraction of shares needed for reconstruction): 
 
 ```
 ECFlood_per_party_communication(msg_length) = number_of_shares * degree * (ceil(msg_length / (reconstruction_fraction * number_of_shares)) + 257 * ceil(log2(number_of_shares)) + 256)
@@ -87,7 +87,7 @@ ECFlood_per_party_communication(msg_length) = number_of_shares * degree * (ceil(
 
 For the respective number of parties, the script will produce 6 outputs of the following format for __ECFlood__
 ```
-Best parameters that made FFFloodAmplifier-n-<number_of_parties>-d-<degree>-mu-<number_of_shares> not fail is reconstruction_fraction = <reconstruction_threshold>
+Best parameters that made FFFloodAmplifier-n-<number_of_parties>-d-<degree>-mu-<number_of_shares> not fail is reconstruction_fraction = <reconstruction_fraction>
 ```
 From these outputs, the best reconstruction threshold ensuring that all simulations succeeded for the respective combinations of degree and number of shares, can be read and used in the above function to obtain the lines for __ECFlood__ in Figure 2 (Eurocrypt numbering). 
 
