@@ -70,7 +70,7 @@ For __FFlood__ the function to plot is:
 FFlood_per_party_communication(msg_length) = degree * msg_length
 ```
 
-For the respective number of parties, the script produces 3 outputs of the following format for __FFlood__
+For the respective number of parties, the script produces 3 outputs of the following form for __FFlood__
 ```
 Best parameter that made FF-n-<number_of_parties> not fail is degree = <d>
 ```
@@ -83,7 +83,7 @@ For __ECFlood__ the function that should be plotted is (Eq (11) in the Eurocrypt
 ECFlood_per_party_communication(msg_length) = number_of_shares * degree * (ceil(msg_length / (reconstruction_fraction * number_of_shares)) + 257 * ceil(log2(number_of_shares)) + 256)
 ```
 
-For the respective number of parties, the script will produce 6 outputs of the following format for __ECFlood__
+For the respective number of parties, the script produces 6 outputs of the following form for __ECFlood__
 ```
 Best parameters that made FFFloodAmplifier-n-<number_of_parties>-d-<degree>-mu-<number_of_shares> not fail is reconstruction_fraction = <reconstruction_fraction>
 ```
